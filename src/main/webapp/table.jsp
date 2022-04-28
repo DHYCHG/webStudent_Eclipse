@@ -2,6 +2,15 @@
 <%@ page import="connect.*" %>
 <%@ page pageEncoding="utf-8"%>
 
+<%
+	String passcard = (String) session.getAttribute("passcard");		
+
+	if(!"ok".equals(passcard) || passcard == null){
+		response.sendRedirect("nolog.jsp");
+		return;
+	}
+%>
+
 <html>
 	<head>
 		<title>学生成绩表</title>
@@ -162,7 +171,8 @@
 		</script>
 		<%@include file = "fenye.jsp"%>
 		<center>
-		<a href="index.html">退出登录</a>
+		<a href="clear.jsp">退出登录</a>
 		</center>
+		
 	</body>
 </html>

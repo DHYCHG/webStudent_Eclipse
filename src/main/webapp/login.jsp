@@ -13,10 +13,12 @@
 	ExecuteSql exec = new ExecuteSql();
 	ResultSet rs = exec.pExecuteSelect(sql, s_string, 2);
 	if(rs.next()){
+		session.setAttribute("passcard", "ok");
 		response.sendRedirect("table.jsp");
 	}
 	else{
 		response.sendRedirect("error.jsp");
+		session.setAttribute("passcard", "no");
 	}
 	DButil.closeConnection();
 

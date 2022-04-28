@@ -2,6 +2,13 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="connect.*" %>
 <%
+		String passcard = (String) session.getAttribute("passcard");		
+
+		if(!"ok".equals(passcard) || passcard == null){
+			response.sendRedirect("nolog.jsp");
+			return;
+		}
+		
 		String id = request.getParameter("id");
 		String x = request.getParameter("x");
 		String name = request.getParameter("name");

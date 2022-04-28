@@ -2,6 +2,13 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="connect.*" %>
 <%
+
+		String passcard = (String) session.getAttribute("passcard");		
+
+		if(!"ok".equals(passcard) || passcard == null){
+			response.sendRedirect("nolog.jsp");
+			return;
+		}
 		String x = request.getParameter("x");
 		String sql = "delete from t_score where id="+x;
 		DButil.connect();
